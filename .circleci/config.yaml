@@ -1,0 +1,23 @@
+version: 2.1
+
+jobs:
+  build:
+    working_directory: ~/circleci-python
+    docker:
+      - image: python:3.9
+    steps:
+      - checkout
+      - run:
+          name: upgrading pip
+          command: pip install --upgrade pip
+      - run:
+          name: Install dependencies
+          command: pip install -r requirements.txt  
+      - run:
+          name: running uvicorn server
+          command:  uvicorn app:app --reload
+
+workflows:
+  build_and_test:
+    jobs:
+      - build
