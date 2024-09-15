@@ -45,9 +45,9 @@ jobs:
       - run:
           name: Install dependencies
           command: pip install -r requirements.txt  
-      - run:
-          name: running uvicorn server
-          command:  uvicorn app:app --reload
+      # - run:
+      #     name: running uvicorn server
+      #     command:  uvicorn app:app --reload
 
 workflows:
   build_and_test:
